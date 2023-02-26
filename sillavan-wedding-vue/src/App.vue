@@ -3,7 +3,21 @@
     <div class="bannerContainer">
       <div class="flowerBanner">
         <div>
-          <v-img src="./assets/Flowers/threeFlowers.png" width="700"></v-img>
+          <v-img
+            src="./assets/Flowers/threeFlowers.png"
+            width="700"
+            eager
+            class="responsive"
+          >
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular
+                  color="grey-lighten-4"
+                  indeterminate
+                ></v-progress-circular>
+              </div>
+            </template>
+          </v-img>
         </div>
       </div>
 
@@ -12,11 +26,11 @@
     </div>
     <div class="routerContainer">
       <nav>
-        <router-link to="/">Home</router-link>
-        <router-link to="/ourstory">Our Story</router-link>
-        <router-link to="/weddingparty">Wedding Party</router-link>
-        <router-link to="/registry">Registry</router-link>
-        <router-link to="/rsvp">RSVP</router-link>
+        <router-link to="/" class="router-link-plain">Home</router-link>
+        <router-link to="/ourstory" class="router-link-plain">Our Story</router-link>
+        <router-link to="/weddingparty" class="router-link-plain">Wedding Party</router-link>
+        <router-link to="/registry" class="router-link-plain">Registry</router-link>
+        <router-link to="/rsvp" class="router-link-plain">RSVP</router-link>
       </nav>
     </div>
 
@@ -67,6 +81,7 @@ export default {
 </script>
 
 <style scoped>
+/* Main Component Styles */
 h1 {
   font-family: Cormorant;
   color: #231f20;
@@ -85,6 +100,22 @@ h2 {
   text-transform: uppercase;
 }
 
+a {
+  margin: 10px;
+}
+
+.router-link-plain {
+  color: black;
+  text-decoration: none;
+}
+
+.router-link-exact-active {
+  /* Class for the active router link */
+  color: var(--v-emerald-base);
+  text-decoration: underline;
+}
+
+/* Container Styles */
 .bannerContainer {
   width: 100%;
   text-align: center;
@@ -94,6 +125,7 @@ h2 {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: -100px;
 }
 
 .routerContainer {
@@ -103,7 +135,18 @@ h2 {
   margin-bottom: 25px;
 }
 
-a {
-  margin: 10px;
+/* Small Screen Media Query */
+@media screen and (max-width: 750px), print {
+  h1 {
+    font-size: 39px;
+  }
+
+  h2 {
+    font-size: 15px;
+  }
+
+  .flowerBanner {
+    display: block;
+  }
 }
 </style>
