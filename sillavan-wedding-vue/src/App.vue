@@ -27,9 +27,15 @@
     <div class="routerContainer">
       <nav>
         <router-link to="/" class="router-link-plain">Home</router-link>
-        <router-link to="/ourstory" class="router-link-plain">Our Story</router-link>
-        <router-link to="/weddingparty" class="router-link-plain">Wedding Party</router-link>
-        <router-link to="/registry" class="router-link-plain">Registry</router-link>
+        <router-link to="/ourstory" class="router-link-plain"
+          >Our Story</router-link
+        >
+        <router-link to="/weddingparty" class="router-link-plain"
+          >Wedding Party</router-link
+        >
+        <router-link to="/registry" class="router-link-plain"
+          >Registry</router-link
+        >
         <router-link to="/rsvp" class="router-link-plain">RSVP</router-link>
       </nav>
     </div>
@@ -67,6 +73,39 @@
     <v-main>
       <router-view />
     </v-main>
+
+    <v-footer class="text-center d-flex flex-column">
+      <div>
+        <v-layout justify-center align-center>
+          <v-flex shrink>
+            <div style="padding-top: 30px;">
+              <v-img
+                src="./assets/Flowers/smallTwig.png"
+                width="200px"
+                eager
+              />
+            </div>
+          </v-flex>
+        </v-layout>
+      </div>
+      <div class="initials">W&F</div>
+      
+      <div class="date">5.27.23</div>
+      
+      <!-- <div style="margin-top: 50px;">
+        <v-layout justify-center align-center>
+          <v-flex shrink>
+            <div>
+              <v-img
+                src="./assets/Flowers/oneFlower1.png"
+                width="200px"
+                eager
+              />
+            </div>
+          </v-flex>
+        </v-layout>
+      </div> -->
+    </v-footer>
   </v-app>
 </template>
 
@@ -102,6 +141,27 @@ h2 {
 
 a {
   margin: 10px;
+}
+
+footer .initials {
+  /* padding: 16px 18px; */
+  font-family: Cormorant;
+  color: #231f20;
+  font-size: 52px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+footer .date {
+  /* padding: 20px 18px 0; */
+  font-family: Nunito;
+  letter-spacing: 3px;
+  color: #231f20;
+  font-size: 20px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  /*border-top: 1px solid #231f20;*/
 }
 
 .router-link-plain {

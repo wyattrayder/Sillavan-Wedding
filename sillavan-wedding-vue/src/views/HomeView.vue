@@ -3,7 +3,7 @@
     <!-- Home image (Faith and Wyatt Proposal) -->
     <v-layout justify-center align-center>
       <v-flex shrink>
-        <div><v-img src="../assets/Photos/Proposal_9Resized.jpg" width="1000px"/></div>
+        <div><v-img src="../assets/Photos/framedPortrait.png" width="1000px" eager/></div>
       </v-flex>
     </v-layout>
   </div>
