@@ -18,6 +18,7 @@
               </div>
             </template>
           </v-img>
+          
         </div>
       </div>
 
