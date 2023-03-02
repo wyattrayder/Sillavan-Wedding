@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <div>
     <!-- Mobile Nav -->
     <v-app-bar color="emerald" dense app :elevation="0" class="mobile">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -34,7 +34,7 @@
         <v-layout justify-center align-center>
           <v-flex shrink>
             <div style="padding-top: 30px">
-              <v-img src="./assets/Flowers/smallTwig.png" width="200px" eager />
+              <v-img src="../assets/Flowers/smallTwig.png" width="200px" eager />
             </div>
           </v-flex>
         </v-layout>
@@ -46,7 +46,7 @@
       <div class="flowerBanner">
         <div>
           <v-img
-            src="./assets/Flowers/threeFlowers.png"
+            src="../assets/Flowers/threeFlowers.png"
             width="700"
             eager
             class="responsive"
@@ -63,12 +63,12 @@
         </div>
       </div>
 
-      <h1 v-if="!this.partyFound">Wyatt and Faith</h1>
-      <h2 v-if="!this.partyFound">May 27, 2023 | Clarksville, AR</h2>
+      <h1>Wyatt and Faith</h1>
+      <h2>May 27, 2023 | Clarksville, AR</h2>
     </div>
 
     <!-- Desktop/Tablet Nav -->
-    <div class="routerContainer" v-if="!this.partyFound">
+    <div class="routerContainer">
       <nav>
         <router-link to="/" class="router-link-plain">Home</router-link>
         <router-link to="/ourstory" class="router-link-plain"
@@ -83,45 +83,13 @@
         <router-link to="/rsvp" class="router-link-plain">RSVP</router-link>
       </nav>
     </div>
-
-    <!-- v-main is separated off from the v-app portion of the page-->
-    <v-main style="padding: 0px;">
-      <router-view @rsvpDialog="rsvpDialog"/>
-    </v-main>
-
-    <!-- Footer -->
-    <v-footer class="text-center d-flex flex-column">
-      <div>
-        <v-layout justify-center align-center>
-          <v-flex shrink>
-            <div style="padding-top: 30px">
-              <v-img src="./assets/Flowers/smallTwig.png" width="200px" eager />
-            </div>
-          </v-flex>
-        </v-layout>
-      </div>
-      <div class="initials">W&F</div>
-
-      <div class="date">5.27.23</div>
-    </v-footer>
-  </v-app>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "App",
 
-  data: () => ({
-    drawer: false,
-    partyFound: false,
-  }),
-
-  methods: {
-    rsvpDialog(partyFound) {
-      this.partyFound = partyFound;
-    }
-  }
-};
+}
 </script>
 
 <style scoped>
@@ -146,27 +114,6 @@ h2 {
 
 a {
   margin: 10px;
-}
-
-footer .initials {
-  /* padding: 16px 18px; */
-  font-family: Cormorant;
-  color: #231f20;
-  font-size: 52px;
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-footer .date {
-  /* padding: 20px 18px 0; */
-  font-family: Nunito;
-  letter-spacing: 3px;
-  color: #231f20;
-  font-size: 20px;
-  font-weight: lighter;
-  text-transform: uppercase;
-  /*border-top: 1px solid #231f20;*/
 }
 
 .router-link-plain {
