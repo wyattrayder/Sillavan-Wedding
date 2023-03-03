@@ -53,7 +53,8 @@ const firestoreApi = {
                 querySnapshot.forEach((doc) => {
                     // doc.data() is never undefined for query doc snapshots
                     // console.log(doc.id, " => ", doc.data());
-                    partyArray.push({ ...doc.data(), docID: doc.id });
+                    let docID = doc.id
+                    partyArray.push({ ...doc.data(), docID: docID });
                 });
             })
             .catch((error) => {
@@ -62,6 +63,18 @@ const firestoreApi = {
 
         // Return the first entry of the array (being the found party)
         return partyArray[0]
-    }
+    },
+
+    async rsvpParty(updateObject, docID) {
+
+        db.collection("Parties").doc(docID).update(updateObject).then(() => {
+            console.log("Document successfully updated!");
+        })
+        .catch((error) => {
+            // The document probably doesn't exist.
+            console.error("Error updating document: ", error);
+        })
+    },
+
 }
 export default firestoreApi

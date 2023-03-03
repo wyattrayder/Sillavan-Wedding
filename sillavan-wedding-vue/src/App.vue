@@ -1,11 +1,14 @@
 <template>
   <v-app>
-    <!-- Mobile Nav -->
-    <v-app-bar color="emerald" dense app :elevation="0" class="mobile">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-    </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" temporary app class="mobile">
+    <!-- Commented code below is the navigation -- moved to individual pages cause some didnt need it -->
+
+    <!-- Mobile Nav -->
+    <!-- <v-app-bar color="emerald" dense app :elevation="0" class="mobile">
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+    </v-app-bar> -->
+
+    <!-- <v-navigation-drawer v-model="drawer" temporary app class="mobile">
       <v-list nav dense>
         <v-list-item-group>
           <v-list-item to="/">
@@ -39,10 +42,10 @@
           </v-flex>
         </v-layout>
       </div>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
 
     <!-- Flowers at top of all pages -->
-    <div class="bannerContainer">
+    <!-- <div class="bannerContainer">
       <div class="flowerBanner">
         <div>
           <v-img
@@ -65,10 +68,10 @@
 
       <h1 v-if="!this.partyFound">Wyatt and Faith</h1>
       <h2 v-if="!this.partyFound">May 27, 2023 | Clarksville, AR</h2>
-    </div>
+    </div> -->
 
     <!-- Desktop/Tablet Nav -->
-    <div class="routerContainer" v-if="!this.partyFound">
+    <!-- <div class="routerContainer" v-if="!this.partyFound">
       <nav>
         <router-link to="/" class="router-link-plain">Home</router-link>
         <router-link to="/ourstory" class="router-link-plain"
@@ -82,7 +85,7 @@
         >
         <router-link to="/rsvp" class="router-link-plain">RSVP</router-link>
       </nav>
-    </div>
+    </div> -->
 
     <!-- v-main is separated off from the v-app portion of the page-->
     <v-main style="padding: 0px;">

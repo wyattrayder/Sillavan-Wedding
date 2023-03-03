@@ -1,5 +1,6 @@
 <template>
   <div>
+    <nav-and-header/>
     <!-- Bride and Groom -->
     <div>
       <v-row no-gutters>
@@ -126,8 +127,10 @@
 </template>
 
 <script>
-export default {
+import NavAndHeader from '@/components/navAndHeader.vue';
 
+export default {
+  components: { NavAndHeader }
 };
 </script>
 

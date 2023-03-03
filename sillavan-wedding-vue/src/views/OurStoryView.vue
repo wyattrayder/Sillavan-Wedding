@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <div>
+    <nav-and-header/>
     <div style="outerContainer">
       <div class="innerContainer">
         <h1>Our Story</h1>
@@ -22,7 +23,9 @@
 </template>
 
 <script>
+import NavAndHeader from '@/components/navAndHeader.vue';
 export default {
+  components: { NavAndHeader }
   };
 </script>
 

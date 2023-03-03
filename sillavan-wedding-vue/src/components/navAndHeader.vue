@@ -80,7 +80,7 @@
         <router-link to="/registry" class="router-link-plain"
           >Registry</router-link
         >
-        <router-link to="/rsvp" class="router-link-plain">RSVP</router-link>
+        <router-link to="/rsvp" target="_blank" class="router-link-plain">RSVP</router-link>
       </nav>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <!-- <nav-and-header/> -->
+  <div>
+    <nav-and-header/>
     <!-- Home image (Faith and Wyatt Proposal) -->
     <v-layout justify-center align-center>
       <v-flex shrink>
@@ -15,11 +15,11 @@
 </template>
 
 <script>
-// import NavAndHeader from '@/components/navAndHeader.vue';
+import NavAndHeader from '@/components/navAndHeader.vue';
 export default {
   name: "HomeView",
 
-  // components: {NavAndHeader,},
+  components: { NavAndHeader },
 };
 </script>
 
