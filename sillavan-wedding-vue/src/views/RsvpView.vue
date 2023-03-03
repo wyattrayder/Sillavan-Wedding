@@ -80,7 +80,7 @@
       <v-row style="margin-top: 35px;">
         <v-col></v-col>
         <v-col cols="8">
-      <v-textarea solo></v-textarea></v-col>
+      <v-textarea solo v-model="note"></v-textarea></v-col>
       <v-col></v-col>
       </v-row>
       <v-btn @click="back">Back</v-btn>
@@ -93,7 +93,7 @@
       <v-row style="margin-top: 35px;">
         <v-col></v-col>
         <v-col cols="8">
-      <v-textarea solo></v-textarea></v-col>
+      <v-textarea solo v-model="songRequest"></v-textarea></v-col>
       <v-col></v-col>
       </v-row>
       <v-btn @click="back">Back</v-btn>
@@ -153,6 +153,8 @@ export default {
     name: "",
     party: {},
     partyDBObject: {},
+    note: "",
+    songRequest: "",
 
     searchPage: true,
     partyFoundPage: false,
