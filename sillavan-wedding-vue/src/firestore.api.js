@@ -70,10 +70,10 @@ const firestoreApi = {
         db.collection("Parties").doc(docID).update(updateObject).then(() => {
             console.log("Document successfully updated!");
         })
-        .catch((error) => {
-            // The document probably doesn't exist.
-            console.error("Error updating document: ", error);
-        })
+            .catch((error) => {
+                // The document probably doesn't exist.
+                console.error("Error updating document: ", error);
+            })
     },
 
     // this function is for local use ONLY.  This is to add parties to firestore
@@ -106,6 +106,18 @@ const firestoreApi = {
             songRequest: songRequest,
             note: note
         })
+    },
+
+    async anonSignIn() {
+        firebase.auth().signInAnonymously()
+            .then(() => {
+                console.log("Signed in successfully");
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
     },
 
 }

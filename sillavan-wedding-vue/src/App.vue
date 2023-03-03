@@ -111,6 +111,7 @@
 </template>
 
 <script>
+import firestoreApi from './firestore.api';
 export default {
   name: "App",
 
@@ -122,7 +123,15 @@ export default {
   methods: {
     rsvpDialog(partyFound) {
       this.partyFound = partyFound;
+    },
+
+    anonSignIn() {
+      firestoreApi.anonSignIn();
     }
+  },
+
+  mounted() {
+    this.anonSignIn();
   }
 };
 </script>

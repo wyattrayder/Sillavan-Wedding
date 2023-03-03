@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "the-sillavan-wedding"
+  },
+  "targets": {
+    "the-sillavan-wedding": {
+      "hosting": {
+        "tr": [
+          "sillavan-rsvp-management"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
