@@ -9,8 +9,9 @@
     <v-progress-linear
       color="light-green darken-4"
       height="10"
-      v-model="this.rsvpProgress"
+      :value="this.rsvpProgress"
       striped
+       
     ></v-progress-linear>
 
     <!-- Find Party -->
@@ -195,6 +196,9 @@ export default {
 
       this.partyDBObject.party = JSON.parse(JSON.stringify(this.party));
       this.partyDBObject.rsvpStatus = true;
+      this.partyDBObject.note = JSON.parse(JSON.stringify(this.note));
+      this.partyDBObject.songRequest = JSON.parse(JSON.stringify(this.songRequest));
+
 
       await firestoreApi.rsvpParty(this.partyDBObject, docID);
     },

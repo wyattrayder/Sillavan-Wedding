@@ -48,7 +48,7 @@ const firestoreApi = {
         let partyArray = []
 
         // Find the party and fill the party into an array (firestore is weird..)
-        await db.collection("Parties").where("partyNames", "array-contains", name).get()
+        await db.collection("Parties").where("partyNames", "array-contains", name.toLowerCase()).get() // lowercase to make it non case sensitive
             .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     // doc.data() is never undefined for query doc snapshots
@@ -73,6 +73,38 @@ const firestoreApi = {
         .catch((error) => {
             // The document probably doesn't exist.
             console.error("Error updating document: ", error);
+        })
+    },
+
+    // this function is for local use ONLY.  This is to add parties to firestore
+    async addParty() {
+        // party names should be list of all LOWERCASE names
+        let partyNames = ["tom daily", "ann daily"];
+        // party array is a list of objects. Normal casing names!!
+        let party = [
+            {
+                name: "Tom Daily",
+                isAttending: false
+            },
+            {
+                name: "Ann Daily",
+                isAttending: false
+            },
+
+        ]
+
+        // this stuff is default like this -- NO NEED TO EDIT
+        let rsvpStatus = false;
+        let songRequest = "";
+        let note = "";
+
+        // Adds to database
+        db.collection("Parties").add({
+            partyNames: partyNames,
+            party: party,
+            rsvpStatus: rsvpStatus,
+            songRequest: songRequest,
+            note: note
         })
     },
 

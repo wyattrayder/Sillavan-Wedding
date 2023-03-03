@@ -8,6 +8,8 @@
       </v-flex>
     </v-layout>
 
+    <!-- <v-btn @click="addUser">Add USer</v-btn> -->
+
     <!-- <div class="quote">
       <p>I am my beloved and my beloved is mine -- Song of Solomon 6:3</p>
     </div> -->
@@ -16,10 +18,17 @@
 
 <script>
 import NavAndHeader from '@/components/navAndHeader.vue';
+// import firestoreApi from '@/firestore.api';
 export default {
   name: "HomeView",
 
   components: { NavAndHeader },
+
+  methods: {
+    // addUser() {
+    //   firestoreApi.addParty();
+    // }
+  }
 };
 </script>
 
