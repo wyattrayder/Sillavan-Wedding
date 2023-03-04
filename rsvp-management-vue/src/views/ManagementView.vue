@@ -1,23 +1,74 @@
 <template>
-  <div>
+  <div class="container">
     <app-bar-vue />
-    <v-text-field v-model="search" solo append-icon="mdi-magnify" label="Filter Parties by Name" class="searchBar"></v-text-field>
-    <v-row>
+    <v-text-field
+      v-model="search"
+      solo
+      append-icon="mdi-magnify"
+      label="Filter Parties by Name"
+      class="searchBar"
+    ></v-text-field>
+    <v-select
+      v-model="selectedFilter"
+      :items="dropdownItems"
+      solo
+      class="searchBar"
+      item-color="emerald"
+    ></v-select>
+    <v-row class="tableRow">
       <v-col v-for="(p, index) in filteredList" :key="index">
-        <table class="partyTable hover">
-          <tr>
-            <th>Party Name(s)</th>
-            <th>Attending</th>
-          </tr>
-          <tr v-for="person in p.party" :key="person.name">
-            <td>
-              {{ person.name }}
-            </td>
-            <td class="centerFlex">
-              <v-checkbox color="emerald" disabled></v-checkbox>
-            </td>
-          </tr>
-        </table>
+        <!-- V-dialog to show popup with more information -->
+        <v-dialog max-width="600">
+          <template v-slot:activator="{ on, attrs }">
+            <!-- Table bound to v-dialog -->
+            <table class="partyTable hover" v-on="on" v-bind="attrs">
+              <tr>
+                <th>Party Name(s)</th>
+                <th>Attending</th>
+              </tr>
+              <tr v-for="person in p.party" :key="person.name">
+                <td>
+                  {{ person.name }}
+                </td>
+                <td class="centerFlex">
+                  <v-checkbox color="emerald" disabled v-model="person.isAttending"></v-checkbox>
+                </td>
+              </tr>
+            </table>
+          </template>
+          <template v-slot:default="dialog">
+            <v-card>
+              <v-toolbar color="primary" dark
+                >{{ p.party[0].name }}'s Party</v-toolbar
+              >
+              <v-card-text class="dialogText">
+                <v-row>
+                  <v-col
+                    ><v-textarea
+                      outlined
+                      auto-grow
+                      disabled
+                      :value="p.note"
+                      label="Note to Bride and Groom"
+                    ></v-textarea
+                  ></v-col>
+                  <v-col
+                    ><v-textarea
+                      outlined
+                      auto-grow
+                      disabled
+                      :value="p.songRequest"
+                      label="Song Request(s)"
+                    ></v-textarea
+                  ></v-col>
+                </v-row>
+              </v-card-text>
+              <v-card-actions class="justify-end">
+                <v-btn text @click="dialog.value = false">Close</v-btn>
+              </v-card-actions>
+            </v-card>
+          </template>
+        </v-dialog>
       </v-col>
     </v-row>
   </div>
@@ -30,6 +81,8 @@ export default {
   data: () => ({
     parties: [],
     search: "",
+    selectedFilter: "All",
+    dropdownItems: ["All", "Has RSVP'd", "Hasn't RSVP'd"],
   }),
   methods: {
     async getParties() {
@@ -46,18 +99,30 @@ export default {
 
   computed: {
     filteredList() {
+      let filteredParties = [];
+
+      // First, filter by RSVP status (Has, Hasn't, or All)
+      if (this.selectedFilter == "Has RSVP'd") {
+        filteredParties = this.parties.filter((p) => {
+          return p.rsvpStatus == true;
+        });
+      } else if (this.selectedFilter == "Hasn't RSVP'd") {
+        filteredParties = this.parties.filter((p) => {
+          return p.rsvpStatus == false;
+        });
+      } else filteredParties = this.parties;
+
+      // Then, filter that by the user's search value!
       if (this.search != "") {
         // THIS IS SO COOL!!
-        let filteredParties =  this.parties.filter((p) => {
-           return p.partyNames.some( r => r.includes(this.search.toLowerCase()));
+        filteredParties = filteredParties.filter((p) => {
+          return p.partyNames.some((r) =>
+            r.includes(this.search.toLowerCase())
+          );
         });
-
-        // let test =  this.parties.filter((p) => {
-        //    return p.partyNames.includes(this.search.toLowerCase());
-        // });
         return filteredParties;
       } else {
-        return this.parties;
+        return filteredParties;
       }
     },
   },
@@ -76,6 +141,15 @@ export default {
   margin-top: 10px;
   padding-left: 100px;
   padding-right: 100px;
+}
+.container {
+  background-color: var(--v-tan-base);
+}
+.tableRow {
+  margin: auto auto;
+}
+.dialogText {
+  padding: 24px 20px !important;
 }
 
 /* Table styles */
