@@ -21,22 +21,19 @@ const db = firebase.firestore();
 
 const firestoreApi = {
 
-    getTest() {
-        var docRef = db.collection("Parties").doc("5Ae9GKwDaewpLXWc50gq");
-
-        docRef.get().then((doc) => {
-            if (doc.exists) {
-                console.log("Document data:", doc.data());
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
-        }).catch((error) => {
-            console.log("Error getting document:", error);
+    async getParties() {
+        let parties = [];
+        db.collection("Parties").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                parties.push({...doc.data()})
+            });
         });
+        return parties;
     },
 
 
+    // Using email and password sign in
     async signIn(email, password) {
         return await firebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
@@ -50,7 +47,40 @@ const firestoreApi = {
                 var errorMessage = error.message;
                 console.log(errorCode, errorMessage);
             });
-    }
+    },
+
+    // Used to add parties to our database
+    async addParty(partyNames) {
+        
+        let party = [];
+
+        // Add names to party list of objects
+        partyNames.forEach((name) => {
+
+            party.push({
+                name: name,
+                isAttending: false,
+            })
+        })
+
+        // Lowercase the names in the party names -- used for case sensitivity in rsvp
+        let lowerNames = partyNames.map((ln) => ln.toLowerCase());
+
+
+        // this stuff is default like this -- NO NEED TO EDIT
+        let rsvpStatus = false;
+        let songRequest = "";
+        let note = "";
+
+        //Adds to database
+        db.collection("Parties").add({
+            partyNames: lowerNames,
+            party: party,
+            rsvpStatus: rsvpStatus,
+            songRequest: songRequest,
+            note: note
+        })
+    },
 
 }
 export default firestoreApi

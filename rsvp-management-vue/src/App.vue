@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <v-main>
+  <v-app class="background">
+    <v-main >
       <router-view/>
     </v-main>
   </v-app>
@@ -14,5 +14,22 @@ export default {
   data: () => ({
     //
   }),
+
+  methods: {
+    checkIfLoggedIn() {
+      if (sessionStorage.getItem("loggedIn") != "true") {
+        this.$router.push("/");
+      }
+    },
+  },
+  mounted() {
+    this.checkIfLoggedIn();
+  }
 };
 </script>
+
+<style scoped>
+.background {
+  background-color: var(--v-tan-base);
+}
+</style>
