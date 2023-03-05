@@ -15,6 +15,17 @@
       class="searchBar"
       item-color="emerald"
     ></v-select>
+    <div class="countsDiv">
+      <v-row>
+        <v-col>
+          <p>Total Guests: {{ totalGuests }}</p>
+        </v-col>
+        <v-col>
+          <p>Guests Coming: {{ guestsComing }}</p>
+        </v-col>
+        <v-col>Guests Not Coming: {{ guestsNotComing }}</v-col>
+      </v-row>
+    </div>
     <v-row class="tableRow">
       <v-col v-for="(p, index) in filteredList" :key="index">
         <!-- V-dialog to show popup with more information -->
@@ -31,7 +42,11 @@
                   {{ person.name }}
                 </td>
                 <td class="centerFlex">
-                  <v-checkbox color="emerald" disabled v-model="person.isAttending"></v-checkbox>
+                  <v-checkbox
+                    color="emerald"
+                    disabled
+                    v-model="person.isAttending"
+                  ></v-checkbox>
                 </td>
               </tr>
             </table>
@@ -124,6 +139,35 @@ export default {
       } else {
         return filteredParties;
       }
+    },
+    totalGuests() {
+      let numGuests = 0;
+      this.parties.forEach((p) => {
+        numGuests += p.party.length;
+      });
+      return numGuests;
+    },
+    guestsComing() {
+      let comingCount = 0;
+
+      this.parties.forEach((p) => {
+        p.party.forEach((p2) => {
+          if (p2.isAttending == true) comingCount++;
+        });
+      });
+
+      return comingCount;
+    },
+    guestsNotComing() {
+      let notComingCount = 0;
+
+      this.parties.forEach((p) => {
+        p.party.forEach((p2) => {
+          if (p2.isAttending == false) notComingCount++;
+        });
+      });
+
+      return notComingCount;
     },
   },
 

@@ -1,20 +1,21 @@
 <template>
   <div>
-    <nav-and-header/>
+    <nav-and-header />
     <div style="outerContainer">
       <div class="innerContainer">
         <h1>Our Story</h1>
         <div class="paragraphDiv">
           <p>
-            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
-            ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
-            ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
-            ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
-            ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-            Lorem ipsum
+            Wyatt and Faith met during their freshman year at Arkansas Tech
+            University in which they had two classes together--the one they
+            remember most, however, is that of Calculus II. They quickly became
+            friends, as it was quite nice to have a fellow "nerd" to talk to.
+            Wyatt and Faith grew even closer during their junior year, having
+            their first date and soon after that, started dating on March, 14th
+            2022. Wyatt knew he had found the one and proposed to Faith at the
+            Garvan Gardens Christmas Light show on December 21st, 2022. Now,
+            Wyatt and Faith look forward to May 27th, as they will embark on the
+            next chapter of their lives -- the gift of marriage.
           </p>
         </div>
       </div>
@@ -23,10 +24,10 @@
 </template>
 
 <script>
-import NavAndHeader from '@/components/navAndHeader.vue';
+import NavAndHeader from "@/components/navAndHeader.vue";
 export default {
-  components: { NavAndHeader }
-  };
+  components: { NavAndHeader },
+};
 </script>
 
 <style scoped>

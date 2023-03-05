@@ -7,14 +7,30 @@
         <v-col></v-col>
         <v-col class="partyCard" xs="12" sm="6" md="3" lg="3">
           <v-card class="hover">
-            <v-img src="../assets/Photos/default.jpg" height="300px"></v-img>
+            <v-img src="../assets/Photos/default.jpg" height="300px">
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular
+                  color="grey-lighten-4"
+                  indeterminate
+                ></v-progress-circular>
+              </div>
+            </template></v-img>
             <v-card-title> Wyatt Sillavan </v-card-title>
             <v-card-subtitle> Groom </v-card-subtitle>
           </v-card>
         </v-col>
         <v-col class="partyCard" xs="12" sm="6" md="3" lg="3">
           <v-card class="hover">
-            <v-img src="../assets/Photos/default.jpg" height="300px"></v-img>
+            <v-img src="../assets/Photos/default.jpg" height="300px">
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular
+                  color="grey-lighten-4"
+                  indeterminate
+                ></v-progress-circular>
+              </div>
+            </template></v-img>
             <v-card-title> Faith Walker </v-card-title>
             <v-card-subtitle> Bride </v-card-subtitle>
           </v-card>
@@ -32,14 +48,30 @@
             <v-img
               src="../assets/Photos/Bridesmaids/madison2.jpg"
               height="300px"
-            ></v-img>
+            >
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular
+                  color="grey-lighten-4"
+                  indeterminate
+                ></v-progress-circular>
+              </div>
+            </template></v-img>
             <v-card-title> Madison Walker </v-card-title>
             <v-card-subtitle> Matron of Honor </v-card-subtitle>
           </v-card>
         </v-col>
         <v-col class="partyCard" xs="12" sm="6" md="3" lg="3">
           <v-card class="hover">
-            <v-img src="../assets/Photos/default.jpg" height="300px"></v-img>
+            <v-img src="../assets/Photos/default.jpg" height="300px">
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular
+                  color="grey-lighten-4"
+                  indeterminate
+                ></v-progress-circular>
+              </div>
+            </template></v-img>
             <v-card-title> Rachel Jacobs </v-card-title>
             <v-card-subtitle> Bridesmaid </v-card-subtitle>
           </v-card>
@@ -49,7 +81,15 @@
             <v-img
               src="../assets/Photos/Bridesmaids/hailey.jpg"
               height="300px"
-            ></v-img>
+            >
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular
+                  color="grey-lighten-4"
+                  indeterminate
+                ></v-progress-circular>
+              </div>
+            </template></v-img>
             <v-card-title> Hailey Addison </v-card-title>
             <v-card-subtitle> Bridesmaid </v-card-subtitle>
           </v-card>
@@ -59,7 +99,15 @@
             <v-img
               src="../assets/Photos/Bridesmaids/jarely.jpg"
               height="300px"
-            ></v-img>
+            >
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular
+                  color="grey-lighten-4"
+                  indeterminate
+                ></v-progress-circular>
+              </div>
+            </template></v-img>
             <v-card-title> Jarely Ramirez </v-card-title>
             <v-card-subtitle> Bridesmaid </v-card-subtitle>
           </v-card>
@@ -73,14 +121,30 @@
       <v-row no-gutters>
         <v-col class="partyCard" xs="12" sm="6" md="3" lg="3">
           <v-card class="hover">
-            <v-img src="../assets/Photos/default.jpg" height="300px"></v-img>
+            <v-img src="../assets/Photos/Groomsmen/karp2.jpg" height="300px">
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular
+                  color="grey-lighten-4"
+                  indeterminate
+                ></v-progress-circular>
+              </div>
+            </template></v-img>
             <v-card-title> Patrick Karp </v-card-title>
             <v-card-subtitle> Best Man </v-card-subtitle>
           </v-card>
         </v-col>
         <v-col class="partyCard" xs="12" sm="6" md="3" lg="3">
           <v-card class="hover">
-            <v-img src="../assets/Photos/default.jpg" height="300px"></v-img>
+            <v-img src="../assets/Photos/default.jpg" height="300px">
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular
+                  color="grey-lighten-4"
+                  indeterminate
+                ></v-progress-circular>
+              </div>
+            </template></v-img>
             <v-card-title> Hunter Lawrence </v-card-title>
             <v-card-subtitle> Groomsman </v-card-subtitle>
           </v-card>
@@ -100,7 +164,15 @@
             <v-img
               src="../assets/Photos/Groomsmen/vatsal.jpg"
               height="300px"
-            ></v-img>
+            >
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular
+                  color="grey-lighten-4"
+                  indeterminate
+                ></v-progress-circular>
+              </div>
+            </template></v-img>
             <v-card-title> Vatsal Patel </v-card-title>
             <v-card-subtitle> Groomsman </v-card-subtitle>
           </v-card>
@@ -115,7 +187,15 @@
         <v-col><v-sheet class="pa-2 ma-2"> </v-sheet></v-col>
         <v-col class="partyCard" xs="12" sm="6" md="3" lg="3">
           <v-card class="hover">
-            <v-img src="../assets/Photos/brinlee.jpg" height="300px"></v-img>
+            <v-img src="../assets/Photos/brinlee.jpg" height="300px">
+            <template v-slot:placeholder>
+              <div class="d-flex align-center justify-center fill-height">
+                <v-progress-circular
+                  color="grey-lighten-4"
+                  indeterminate
+                ></v-progress-circular>
+              </div>
+            </template></v-img>
             <v-card-title> Brinlee Walker </v-card-title>
             <v-card-subtitle> Flower Girl </v-card-subtitle>
           </v-card>
